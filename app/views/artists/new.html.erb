@@ -8,10 +8,27 @@
   <%= f.text_field :last_name %>
 
   <%= f.label :genre %>
-  <%= f.text_field :genre %>
+  <%= f.select :genre,
+      [["Classical", "Classical"],
+      ["Renaissance", "Renaissance"],
+      ["Baroque", "Baroque"],
+      ["Romantic", "Romantic"]].sort,
+        prompt: "Select Genre",
+          class: "form-control" %>
 
   <%= f.label :nationality %>
-  <%= f.text_field :nationality %>
+  <%= f.select :nationality,
+      [["Austrian", "Austrian"],
+      ["German", "German"],
+      ["French", "French"],
+      ["Italian", "Italian"],
+      ["Russian", "Russian"],
+      ["Spanish", "Spanish"],
+      ["Polish", "Polish"],
+      ["Dutch", "Dutch"],
+      ["English", "English"]].sort,
+        prompt: "Select Nationality",
+          class: "form-control" %>
 
   <%= f.submit "Compose" %>
 <% end %>
