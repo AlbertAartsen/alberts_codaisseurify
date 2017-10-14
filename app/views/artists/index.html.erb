@@ -1,6 +1,6 @@
 <h1>Composers</h1>
 
 <% @artists.each do |artist| %>
-  <p><%= "#{artist.first_name} #{artist.last_name}" %></p>
+  <p><%= link_to "#{artist.first_name} #{artist.last_name}", artist_path(artist.id) %></p>
 
 <% end %>
