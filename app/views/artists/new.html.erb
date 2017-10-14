@@ -1,0 +1,17 @@
+<h1>Add a Composer to our List</h1>
+
+<%= form_for @artist do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+
+  <%= f.label :nationality %>
+  <%= f.text_field :nationality %>
+
+  <%= f.submit "Compose" %>
+<% end %>
