@@ -29,17 +29,18 @@ def edit
 end
 
 def destroy
-    @Song = Song.find(params[:id])
+    @song = Song.find(params[:id])
 
-    @Song.destroy
+    @song.destroy
 
-    redirect_to song_path
+    redirect_to artist_path
   end
 
 
   private
 
-  song_params = params.require(:song).permit(:name, :length, :year, :nationality)
-
+  def song_params
+    song_params = params.require(:song).permit(:name, :length, :year, :nationality)
+  end
 
 end
