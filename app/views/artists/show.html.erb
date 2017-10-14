@@ -4,3 +4,7 @@
 <p>Last Name:   <%= @artist.last_name %></p>
 <p>Genre:       <%= @artist.genre %></p>
 <p>Nationality: <%= @artist.nationality %></p>
+<%= link_to "Edit this Composer", edit_artist_path(@artist.id) %>
+<h2>Compositions</h2>
+
+<p><%= "#{@artist.songs.all}" %></p>
