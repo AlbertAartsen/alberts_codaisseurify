@@ -1,0 +1,13 @@
+<h1><%= "#{@song.name}" %></h1>
+
+<p>Length:      <%= @song.length %></p>
+<p>Year:        <%= @song.year %></p>
+
+<%= link_to "Edit this Composition", edit_song_path(@song.id) %>
+
+
+
+
+<br><br>
+<hr>
+<%= link_to "Delete this Composer", artist_path(@artist.id), method: :delete, data: { confirm: "Are You Sure You Want to Rewrite History?" } %>
