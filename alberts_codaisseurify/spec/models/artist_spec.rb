@@ -2,6 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Artist, type: :model do
 
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:first_name) }
+    it { is_expected.to validate_presence_of(:last_name) }
+    it { is_expected.to validate_presence_of(:genre) }
+    it { is_expected.to validate_presence_of(:nationality) }
+  end
+
+
   describe Artist do
     describe "#full_name" do
       let(:artist) {create :artist, first_name: "Lorem", last_name: "de Ipsum"}
