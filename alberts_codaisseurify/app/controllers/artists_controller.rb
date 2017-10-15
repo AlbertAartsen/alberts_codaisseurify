@@ -10,6 +10,11 @@ def show
 
 end
 
+def full_name
+  "#{first_name} #{last_name}"
+end
+
+
 def new
   @artist = Artist.new
 end

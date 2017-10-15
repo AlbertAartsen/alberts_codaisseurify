@@ -1,7 +1,7 @@
 <h1>Composers</h1>
 
 <% @artists.each do |artist| %>
-  <p><%= link_to "#{artist.first_name} #{artist.last_name}", artist_path(artist.id) %></p>
+  <p><%= link_to "#{artist.full_name}", artist_path(artist.id) %></p>
 <% end %>
 
 <% @photos.each do |photo| %>
