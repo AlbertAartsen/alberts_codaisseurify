@@ -22,5 +22,5 @@
 <%= link_to "Delete #{@artist.last_name}", artist_path(@artist.id),
       method: :delete,
         data: { confirm: "Are You Sure You Want to Delete #{@artist.first_name} #{@artist.last_name}?" } %>
-
+<br>
 <%= link_to "Add Composition", new_song_path %>

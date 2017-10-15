@@ -9,9 +9,7 @@
   <%= f.select :year, (1500..1950).to_a, :include_blank => {:year => "Select year"} %>
 
   <%= f.label :artist_id %>
-  <%= form_for @song do |f| %>
   <%= f.collection_select :artist_id, Artist.all, :id, :last_name %>
-<% end %>
 
-  <%= f.submit (@song.new_record? ? "Compose" : "Edit") %>
+  <%= f.submit (@song.new_record? ? "Compose" : "Update") %>
 <% end %>

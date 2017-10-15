@@ -13,6 +13,8 @@ def new
 end
 
 def create
+  song_params = params.require(:song).permit(:name, :length, :year, :artist_id)
+
     @song = Song.new(song_params)
 
     if @song.save
@@ -32,13 +34,5 @@ def destroy
     @song.destroy
 
     redirect_to artists_path
-  end
-
-
-  private
-
-  def song_params
-    song_params = params.require(:song).permit(:name, :length, :year, :nationality, :artist_id)
-  end
-
+end
 end
