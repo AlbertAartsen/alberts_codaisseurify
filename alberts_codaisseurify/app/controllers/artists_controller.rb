@@ -14,23 +14,6 @@ def full_name
   "#{first_name} #{last_name}"
 end
 
-
-def new
-  @artist = Artist.new
-end
-
-  def create
-  artist_params = params.require(:artist).permit(:first_name, :last_name, :genre, :nationality)
-
-    @artist = Artist.new(artist_params)
-
-    if @artist.save
-      redirect_to @artist
-    else
-      render 'new'
-    end
-end
-
 def destroy
     @artist = Artist.find(params[:id])
 

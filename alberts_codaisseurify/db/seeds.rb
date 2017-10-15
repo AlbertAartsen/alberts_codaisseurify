@@ -31,8 +31,8 @@ song = Song.create!(name: "Adagio from Concerto for violin in B flat major", len
 
 #faure
 song = Song.create!(name: "Requiem", length: 112.33, year: 1877, artist: faure)
-song = Song.create!(name: "", length: 76.47, year: 1898, artist: faure)
-song = Song.create!(name: "", length: 12.02, year: 1856, artist: faure )
+song = Song.create!(name: "Piano Quartet No 1, Op. 15", length: 76.47, year: 1898, artist: faure)
+song = Song.create!(name: "Fantasie, Op. 79", length: 12.02, year: 1856, artist: faure )
 
 #schubert
 song = Song.create!(name: "Piano Sonata in D major, Op.53, D.850", length: 7.23, year: 1798, artist: schubert)

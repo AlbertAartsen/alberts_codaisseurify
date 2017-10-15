@@ -7,6 +7,3 @@
 <% @photos.each do |photo| %>
   <%= image_tag photo.image.thumbnail %>
 <% end %>
-
-<hr>
-    <%= link_to "Add Composer", new_artist_path %>
