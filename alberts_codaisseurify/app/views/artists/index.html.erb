@@ -1,0 +1,12 @@
+<h1>Composers</h1>
+
+<% @artists.each do |artist| %>
+  <p><%= link_to "#{artist.first_name} #{artist.last_name}", artist_path(artist.id) %></p>
+<% end %>
+
+<% @photos.each do |photo| %>
+  <%= image_tag photo.image.thumbnail %>
+<% end %>
+
+<hr>
+    <%= link_to "Add Composer", new_artist_path %>

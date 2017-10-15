@@ -1,0 +1,25 @@
+<h1><%= "#{@artist.last_name}" %></h1>
+
+<p>First Name:  <%= @artist.first_name %></p>
+<p>Last Name:   <%= @artist.last_name %></p>
+<p>Genre:       <%= @artist.genre %></p>
+<p>Nationality: <%= @artist.nationality %></p>
+
+<h2>Compositions</h2>
+  <% if @artist.songs.any? %>
+    <ul>
+      <% @artist.songs.each do |song| %>
+        <li><%= link_to song.name, song_path(song.id) %></li>
+          <% end %>
+    </ul>
+  <% else %>
+  <p>This Composer has not had any Songs added to his discography</p>
+<% end %>
+
+<br><br>
+<hr>
+<%= link_to "Delete #{@artist.last_name}", artist_path(@artist.id),
+      method: :delete,
+        data: { confirm: "Are You Sure You Want to Delete #{@artist.first_name} #{@artist.last_name}?" } %>
+<br>
+<%= link_to "Add Composition", new_song_path %>
