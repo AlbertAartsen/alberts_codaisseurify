@@ -4,13 +4,15 @@
 <p>Last Name:   <%= @artist.last_name %></p>
 <p>Genre:       <%= @artist.genre %></p>
 <p>Nationality: <%= @artist.nationality %></p>
-<%= link_to "Edit this Composer", edit_artist_path(@artist.id) %>
 
 <h2>Compositions</h2>
   <% if @artist.songs.any? %>
     <ul>
       <% @artist.songs.each do |song| %>
-        <li><%= link_to song.name, song_path(song.id) %></li>
+        <li><%= "Title: #{song.name} - #{song.length} :minutes - #{song.year}"%></li>
+        <li><%= link_to 'Destroy', artist_song_path(song.artist_id, song.id),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></li>
           <% end %>
     </ul>
   <% else %>
@@ -23,4 +25,4 @@
       method: :delete,
         data: { confirm: "Are You Sure You Want to Delete #{@artist.first_name} #{@artist.last_name}?" } %>
 <br>
-<%= link_to "Add Composition", new_song_path %>
+<%= link_to "Add Composition", new_artist_song_path(@artist.id) %>

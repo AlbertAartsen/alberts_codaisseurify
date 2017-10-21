@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :song do
-    name "MyString"
-    length "9.99"
-    year 1
+    name    { Faker::Lorem.words(4) }
+    length  "9.99"
+    year    1500
   end
 end
