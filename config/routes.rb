@@ -6,13 +6,17 @@ resources :artists do
   resources :songs
 end
 
+resources :photos
+
 namespace :api do
   resources :artists do
     resources :songs
   end
 end
 
-resources :photos
+namespace :api do
+  resources :photos
+end
 
 
 end
