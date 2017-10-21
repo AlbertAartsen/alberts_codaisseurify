@@ -1,7 +1,8 @@
 class SongsController < ApplicationController
 
 def index
-  @songs = Song.all
+  @artist = Artist.find(params[:artist_id])
+  @songs = @artist.songs
 end
 
 def show
@@ -9,16 +10,16 @@ def show
 end
 
 def new
+  @artist = Artist.find(params[:artist_id])
   @song = Song.new
 end
 
 def create
-  song_params = params.require(:song).permit(:name, :length, :year, :artist_id)
-
-    @song = Song.new(song_params)
+    @artist = Artist.find(params[:artist_id])
+    @song = @artist.songs.new(song_params)
 
     if @song.save
-      redirect_to @song
+      redirect_to @artist
     else
       render 'new'
     end
@@ -33,6 +34,13 @@ def destroy
 
     @song.destroy
 
-    redirect_to artists_path
+    redirect_to artists_path(@song.artist_id)
 end
+
+private
+
+def song_params
+  params.require(:song).permit(:name, :length, :year)
+end
+
 end

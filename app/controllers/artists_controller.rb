@@ -2,30 +2,21 @@ class ArtistsController < ApplicationController
 
 def index
   @artists = Artist.all
+  @photos = Photo.all
 end
 
 def show
   @artist = Artist.find(params[:id])
+  @songs = @artist.songs
 end
 
 def new
-  @artist = Artist.new
-end
-
-def create
-  artist_params = params.require(:artist).permit(:first_name, :last_name, :genre, :nationality)
-
-    @artist = Artist.new(artist_params)
-
-    if @artist.save
-      redirect_to @artist
-    else
-      render 'new'
-    end
-end
-
-def edit
   @artist = Artist.find(params[:id])
+  @songs = @artist.songs
+end
+
+def full_name
+  "#{first_name} #{last_name}"
 end
 
 def destroy
@@ -34,6 +25,6 @@ def destroy
     @artist.destroy
 
     redirect_to artists_path
-end
-
+  
+  end
 end

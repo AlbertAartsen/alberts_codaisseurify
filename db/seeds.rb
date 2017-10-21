@@ -1,5 +1,6 @@
 Artist.destroy_all
 Song.destroy_all
+Photo.destroy_all
 
 beethoven   = Artist.create!(first_name: "Ludwig", last_name: "van Beethoven", genre: "Classical" ,nationality: "German")
 mozart      = Artist.create!(first_name: "Amadeus", last_name: "Mozart", genre: "Classical", nationality: "Austrian")
@@ -30,10 +31,18 @@ song = Song.create!(name: "Adagio from Concerto for violin in B flat major", len
 
 #faure
 song = Song.create!(name: "Requiem", length: 112.33, year: 1877, artist: faure)
-song = Song.create!(name: "", length: 76.47, year: 1898, artist: faure)
-song = Song.create!(name: "", length: 12.02, year: 1856, artist: faure )
+song = Song.create!(name: "Piano Quartet No 1, Op. 15", length: 76.47, year: 1898, artist: faure)
+song = Song.create!(name: "Fantasie, Op. 79", length: 12.02, year: 1856, artist: faure )
 
 #schubert
 song = Song.create!(name: "Piano Sonata in D major, Op.53, D.850", length: 7.23, year: 1798, artist: schubert)
 song = Song.create!(name: "Winterreise", length: 45.31, year: 1790, artist: schubert)
 song = Song.create!(name: "Trio Pour Piano, Violon et Violoncelle no. 2 en mi Bemol, Op. 100", length: 33.55 , year: 1787, artist: schubert)
+
+#photos
+photo_beethoven   = Photo.create!(remote_image_url:"http://res.cloudinary.com/dvhogaeis/image/upload/v1508028992/beethoven_n4rfxl.jpg", artist: beethoven)
+photo_mozart      = Photo.create!(remote_image_url:"http://res.cloudinary.com/dvhogaeis/image/upload/v1508028991/mozart_hfylmz.jpg", artist: mozart)
+photo_faure       = Photo.create!(remote_image_url:"http://res.cloudinary.com/dvhogaeis/image/upload/v1508028986/faure_ahxfej.jpg", artist: faure)
+photo_monteverdi  = Photo.create!(remote_image_url:"http://res.cloudinary.com/dvhogaeis/image/upload/v1508028992/monteverdi_ribhso.jpg", artist: monteverdi)
+photo_albinoni    = Photo.create!(remote_image_url:"http://res.cloudinary.com/dvhogaeis/image/upload/v1508028985/albinoni_owol73.jpg", artist: albinoni)
+photo_schubert    = Photo.create!(remote_image_url:"http://res.cloudinary.com/dvhogaeis/image/upload/v1508028995/schubert_rxta1t.jpg", artist: schubert)

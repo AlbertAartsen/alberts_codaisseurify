@@ -5,4 +5,4 @@
 
 <br><br>
 <hr>
-<%= link_to "Delete #{@song.name}", song_path(@song.id), method: :delete, data: { confirm: "Are You Sure You Want to Rewrite History?" } %>
+<%= link_to "Delete #{@song.name}", artist_song_path(@song.id), method: :delete, data: { confirm: "Are You Sure You Want to Rewrite History?" } %>
