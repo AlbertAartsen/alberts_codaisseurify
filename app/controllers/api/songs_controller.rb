@@ -1,26 +1,19 @@
 class Api::SongsController < ApplicationController
   def index
-    render status: 200, json: {
-      songs: Song.all
-    }.to_json
+    songs = Song.all
+    render status: 200, json: songs
   end
 
   def show
     song = Song.find(params[:id])
-
-    render status: 200, json: {
-      song: song
-    }.to_json
+    render status: 200, json: song
   end
 
   def create
     song = @artist.song.new(song_params)
 
     if song.save
-      render status: 201, json: {
-        message: "Composition Saved",
-        song: song
-      }.to_json
+       render status: 200, json: song
     else
       render status: 422, json: {
         errors: song.errors
