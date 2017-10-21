@@ -1,4 +1,6 @@
 class Api::SongsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     songs = Song.all
     render status: 200, json: songs
@@ -10,7 +12,7 @@ class Api::SongsController < ApplicationController
   end
 
   def create
-    song = @artist.song.new(song_params)
+    song = Song.new(song_params)
 
     if song.save
        render status: 200, json: song
@@ -22,7 +24,7 @@ class Api::SongsController < ApplicationController
   end
 
   def destroy
-    song = @artist.song.find(params[:id])
+    song = Song.find(params[:id])
     song.destroy
 
     render status: 200, json: {
@@ -33,11 +35,7 @@ class Api::SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:name, :length, :year)
+    params.require(:song).permit(:name, :length, :year, :artist_id)
   end
-
-  def set_artist
-      @artist = Artist.find(params[:artist_id])
-    end
 
 end
