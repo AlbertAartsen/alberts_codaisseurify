@@ -9,10 +9,10 @@
   <% if @artist.songs.any? %>
     <ul>
       <% @artist.songs.each do |song| %>
-        <li><%= "Title: #{song.name} - #{song.length} :minutes - #{song.year}"%></li>
-        <li><%= link_to 'Destroy', artist_song_path(song.artist_id, song.id),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></li>
+        <li><%= "Title: #{song.name} - #{song.length} :minutes - #{song.year}"%>
+          <%= link_to "Delete #{song.name}", artist_song_path(song.artist_id, song.id),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %></li>
           <% end %>
     </ul>
   <% else %>
