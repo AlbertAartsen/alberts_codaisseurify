@@ -1,32 +1,12 @@
-<%= form_for @artist do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+<%= form_for [@artist, @artist.songs.new] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+  <%= f.label :length %>
+  <%= f.number_field :length %>
 
-  <%= f.label :genre %>
-  <%= f.select :genre,
-      [["Classical", "Classical"],
-      ["Renaissance", "Renaissance"],
-      ["Baroque", "Baroque"],
-      ["Romantic", "Romantic"]].sort,
-        prompt: "Select Genre",
-          class: "form-control" %>
+  <%= f.label :year %>
+  <%= f.select :year, (1500..1950).to_a, :include_blank => {:year => "Select year"} %>
 
-  <%= f.label :nationality %>
-  <%= f.select :nationality,
-      [["Austrian", "Austrian"],
-      ["German", "German"],
-      ["French", "French"],
-      ["Italian", "Italian"],
-      ["Russian", "Russian"],
-      ["Spanish", "Spanish"],
-      ["Polish", "Polish"],
-      ["Dutch", "Dutch"],
-      ["English", "English"]].sort,
-        prompt: "Select Nationality",
-          class: "form-control" %>
-
-  <%= f.submit (@artist.new_record? ? "Compose" : "Edit") %>
+  <%= f.submit (@artist.new_record? ? "Compose" : "Update") %>
 <% end %>

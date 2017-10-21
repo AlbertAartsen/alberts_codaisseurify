@@ -25,4 +25,5 @@
       method: :delete,
         data: { confirm: "Are You Sure You Want to Delete #{@artist.first_name} #{@artist.last_name}?" } %>
 <br>
-<%= link_to "Add Composition", new_artist_song_path(@artist.id) %>
+<h2>Add a Composition</h2>
+<p><%= render "form" %></p>
