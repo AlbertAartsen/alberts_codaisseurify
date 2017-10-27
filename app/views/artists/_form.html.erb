@@ -8,5 +8,5 @@
   <%= f.label :year %>
   <%= f.select :year, (1500..1950).to_a, :include_blank => {:year => "Select year"} %>
 
-  <%= f.submit (@artist.new_record? ? "Compose" : "Update") %>
+  <a href="javascript:;" id="add">Create</a>
 <% end %>
