@@ -16,7 +16,6 @@ class Api::SongsController < ApplicationController
 
     if song.save
        render status: 200, json: song
-        message: "Composition Created"
     else
       render status: 422, json: {
         errors: song.errors

@@ -20,7 +20,6 @@ $( document ).ready(function() {
     $('.delete-song').on('click', function(){
       var songId = $(this).data('songId');
       deleteSong(songId);
-        console.log(data);
     });
 
   function createComposition() {
@@ -40,8 +39,19 @@ $( document ).ready(function() {
       dataType: "json"
     })
     .done(function(data) {
-      console.log(data);
-      $('ul').append('<li>Title: '+ data.name + ' - ' + data.length +' :minutes - '+ data.year + '<a href="#" data-song-id="'+ data.id +'" class="delete-song"> Delete song</a></li>');
+      var html = `
+        <li>
+            Title: ${data.name} - ${data.length} :minutes - ${data.year}
+            <a href="#" data-song-id="${data.id}" class="delete-song">
+                Delete song
+            </a>
+        </li>
+      `;
+      $('songs-list').append(html);
+         $('.delete-song').on('click', function(){
+           var songId = $(this).data('songId');
+           deleteSong(songId);
+         });
     });
   }
 
