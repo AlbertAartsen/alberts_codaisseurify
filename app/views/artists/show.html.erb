@@ -10,9 +10,9 @@
     <% if @artist.songs.any? %>
       <ul id="songs-list">
         <% @artist.songs.each do |song| %>
-          <li class="composition"><%= "Title: #{song.name} - #{song.length} :minutes - #{song.year}"%>
+          <li class="composition"><%= "Name: #{song.name} - Length: #{song.length} - Year: #{song.year}"%>
             <a href="#" data-song-id=" <%= "#{song.id}" %>"  class="delete-song">
-              Delete song
+              Delete Composition
             </a>
           </li>
           <% end %>

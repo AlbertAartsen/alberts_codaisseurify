@@ -1,9 +1,7 @@
-
-$( document ).ready(function() {
-
   function deleteSong(songId) {
     var artistId = $('#artist').data('artistId');
   	var song = $(this).parent();
+
   $.ajax({
         method: "DELETE",
         url: "/api/artists/"+ artistId +"/songs/" + songId,
@@ -13,14 +11,10 @@ $( document ).ready(function() {
     })
 
     .done(function(data) {
+      console.log(data);
       $('[data-song-id="'+ songId +'"]').parent().remove();
     });
   }
-
-    $('.delete-song').on('click', function(){
-      var songId = $(this).data('songId');
-      deleteSong(songId);
-    });
 
   function createComposition() {
     var name = $('#song_name').val();
@@ -39,25 +33,22 @@ $( document ).ready(function() {
       dataType: "json"
     })
     .done(function(data) {
+      console.log(data);
       var html = `
         <li>
-            Title: ${data.name} - ${data.length} :minutes - ${data.year}
+            Name: ${data.name} - Length: ${data.length} - Year: ${data.year}
             <a href="#" data-song-id="${data.id}" class="delete-song">
-                Delete song
+                Delete Composition
             </a>
         </li>
       `;
-      $('songs-list').append(html);
-         $('.delete-song').on('click', function(){
+      $('#songs-list').append(html);
+         $('.delete-song:last').on('click', function(){
            var songId = $(this).data('songId');
            deleteSong(songId);
          });
     });
   }
-
-  $('#add').on('click', function(){
-    createComposition();
-  });
 
   function deleteAllSongs(){
     $.each($(".delete-song"), function(index, listItem) {
@@ -65,12 +56,17 @@ $( document ).ready(function() {
       var songId = $(listItem).data('songId');
       deleteSong(songId);
     });
-
   }
 
-  $('#delete-all-compositions').on('click', function(){
+$( document ).ready(function() {
+  $('#add').bind('click', function(){
+    createComposition();
+  });
+    $('.delete-song').bind('click', function(){
+      var songId = $(this).data('songId');
+        deleteSong(songId);
+    });
+  $('#delete-all-compositions').bind('click', function(){
     deleteAllSongs();
   });
-
-
 });

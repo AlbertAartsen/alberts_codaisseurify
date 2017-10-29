@@ -7,7 +7,7 @@ feature "Add to songs list", js:true do
       fill_in "song_name", with: "Fur Elise"
       fill_in "song_length", with: "34"
       fill_in "song_year", with: "1700"
-      click_link 'add'
+      page.execute_script("$('form').submit()")
     end
 
     given(:artist) { create :artist }
